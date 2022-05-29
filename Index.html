@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Money Transaction</title>
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+
+    <!--our scripts-->
+
+    <script src="js/lib/jquery.validate.js"></script>
+    <script src="js/NKdatabase.js"></script>
+    <script src="js/NKfeedbackDAL.js"></script>
+    <script src="js/NKfacade.js"></script>
+    <script src="js/NKutil.js"></script>
+    <script src="js/NKglobal.js"></script>
+
+    <!--our stylesheet-->
+    <link rel="stylesheet" href="css/NKmystyle.css">
+
+    <!--home page-->
+</head>
+<body>
+<div id="homepage" data-role="page" style="background-color: #0088bb">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1> RedSea Money Transaction </h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="Home" data-role="content">
+        <h1><b>Red Sea Money Transaction App</b></h1>
+
+        <p>Welcome to the Red sea Money transaction app. This app ia very fast and easy to use it.
+            This is the  online money transfer from canada to Eritrea.
+            please feel free to contact US through phone call or email  if you  need any clarification about  tis app!
+        </p>
+
+
+        <p id="aligncenter">
+
+            <img src="css/lib/images/download.jpg" height="250" width="300"/>
+            <img src="img/money.png" height="250" width="250" alt="centered image" />
+            <style>
+                #aligncenter {
+                    text-align: center;
+                }
+            </style>
+
+            <img src="css/lib/images/eritrean-nakfa.jpg" height="250" width="250"/></p>
+        <div id="controlgroup1">
+            <a href="#phone" id="phone"   data-role="button" data-icon="plus"><b>call:226.978.5828</b></a>
+            <a href="#email" id="email"  data-role="button" data-icon="plus"><b>nahom72@yahoo.com</b></a>
+            <p>website:</p>
+            <a href="#eastafrica" id="eastafrica"  data-role="button" data-icon="plus"><b>Red Sea Money Transaction App</b></a>
+        </div>
+
+        <footer data-role="footer" data-theme="b" data-position="fixed">
+            <h4>&COPY; 2021 EastAfrica.com</h4>
+        </footer>
+    </div>
+</div>
+
+<!--Add page-->
+
+<div id="AddSender&ReceiverPage" data-role="Page" style="background-color: #0088bb">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Sender& Receiver info </h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home" >Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus" class="ui-btn-active ui-state-persist">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+<h1> Sender Form</h1>
+    <form id="AddSenderinformation" name="AddSenderinformation" data-role="content">
+
+        <label for="SenderName" > Sender FullName:</label>
+        <input id="SenderName" type="text" data-clear-btn="true" name="SenderName" class="required">
+        <label for="selprovince">Canada:</label>
+            <select id="selprovince" name="selprovince">
+                <option value="Ontario">Ontario</option>
+                <option value="Alberta">Alberta</option>
+                <option value="BritishColumbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                <option value="Northwest Territories">Northwest Territories</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+            </select>
+
+        <label for="SenderEmail">  Sender Email:</label>
+        <input id="SenderEmail" type="email"  name="SenderEmail" placeholder="nahom@yahoo.com" class="required"  data-clear-btn="false">
+        <label for="PhoneNumber" > Phone Number:</label>
+        <input id="PhoneNumber" name="PhoneNumber" class="required" data-clear-btn="false" >
+
+        <label for="date" > Date Send:</label>
+        <input id="date" type="date" name="date"  data-clear-btn="false" class="required">
+
+        <label for="checkbox"> How Much money Do you want to send?</label>
+        <input id="checkbox" type="checkbox" name="checkbox">
+        <div id="checkboxG" style="display: none">
+
+            <label for="Amount"> Amount($):</label>
+            <input id="Amount" type="number" name="Amount"  data-clear-btn="true" value="" >
+
+            <label for="Total" > Total send:</label>
+            <input id="Total"   type="text"  name="Total" disabled="disabled">
+            <label for="paymentmethod"> Payment Method:</label>
+            <input id="paymentmethod" type="checkbox" name="paymentmethod">
+            <div id="payment" style="display: none">
+
+                <label for="Nameholder">   Name on card:</label>
+                <input id="Nameholder" type="text" name="Nameholder"  data-clear-btn="false">
+
+                <label for="CardNumber">  Card  Number:</label>
+                <input id="CardNumber" type="password" name="CardNumber"  data-clear-btn="false" class="required">
+
+
+
+                <label for="dateEX">  Exp.date:</label>
+                <input id="dateEX" type="date" name="dateEX"  data-clear-btn="false" class="required">
+
+
+                <label for="cvv">  CVV:</label>
+                <input id="cvv" type="password" name="cvv"  data-clear-btn="false" class="required">
+
+
+            </div>
+        </div>
+        <h1>Receiver Form</h1>
+        <label for="ReceiverName" > Receiver FullName:</label>
+        <input id="ReceiverName" type="text" data-clear-btn="true" name="ReceiverName" class="required">
+        <label for="Recievercountry">Receiver Location:</label>
+        <select id="Recievercountry" name="Recievercountry">
+            <option value="Eritrea" selected>Eritrea</option>
+        </select>
+
+        <label for="ReceiverEmail">  Receiver Email:</label>
+        <input id="ReceiverEmail" type="email"  name="ReceiverEmail" placeholder="nahom@yahoo.com"  class="required"  data-clear-btn="false">
+        <label for="Number" > Phone Number:</label>
+        <input id="Number" name="Number" class="required" data-clear-btn="false" >
+
+        <label for="Receiverdate" > Date Receive:</label>
+        <input id="Receiverdate" type="date" name="Receiverdate"  data-clear-btn="false" class="required">
+
+            <label for="Account">  Receiver Account:</label>
+            <input id="Account" type="password" name="Account"  data-clear-btn="false" >
+        <label for="Received">  Amount Receive:</label>
+        <input id="Received" type="text" name="Received"  disabled="disabled" >
+
+        <button type="button" id="bSave"  name="bSave" data-inline="horizontal" data-theme="b"
+                style="background: blue" >Save
+        </button>
+    </form>
+
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h4>&COPY; 2021 www.redsea.com </h4>
+    </footer>
+</div>
+
+<!--SenderRecieverchekeuppage-->
+
+<div id="SenderRecieverchekeuppage"  data-role="page" style="background-color: #0088bb">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1> Sender over view  </h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home" >Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid" class="ui-btn-active ui-state-persist">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="listoverview" data-role="content">
+        <ul data-role="listview" id="List" class="ui-listview-inset">
+            <li>
+                <a href="#Editpage" data-theme="a">App Name: RedSea Money transfer
+                    <p>Sender Name:<br>
+                        Sender Phone Number: <br>
+                        Sender Email: <br>
+                        Total Amount Send: <br>
+                        Receiver Name:
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="#Editpage">App Name: RedSea Money transfer
+                    <p>Sender Name:<br>
+                        Sender Phone Number: <br>
+                        Sender Email: <br>
+                        Total Amount Send:<br>
+                        Receiver Name:
+                    </p>
+
+                </a>
+
+            </li>
+
+        </ul>
+    </div>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h4>&COPY; 2021 www.redsea.com</h4>
+    </footer>
+</div>
+
+<!--SettingsPage-->
+
+<div id="SettingsPage" data-role="page" style="background-color: #0088bb">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>  Settings </h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home" >Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star" >Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="Setting1" data-role="content">
+        <form id="Settings">
+            <label for="defualtSenderEmail1"> Sender Email:</label>
+            <input id="defualtSenderEmail1" type="text" data-clear-btn="false"
+                   value="nahom@yahoo.com" name="NKtext" >
+            <span id="defualtsenderEmailError" class="emailError"></span>
+
+        </form>
+    </div>
+    <button  type="button" id="Savedefault" name="Savedefault" data-theme="b"  style="background:#0088bb">Save Default</button>
+    <button  type="button" id="ClearDatabase" name="ClearDatabase" data-theme="b" style="background: #1b1b1b">Clear Database</button>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h4>&COPY; 2021  www.redsea.com</h4>
+    </footer>
+</div>
+
+<! -- Contact Page-->
+<div id="ContactPage" data-role="page" style="background-color: #0088bb">
+
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1> Contact information</h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home" >Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star" class="ui-btn-active ui-state-persist">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Contact us:</h1>
+        <p>RedSeaApp is a new app and it created  by a student who is taking class at Conestoga College. </p>
+        <p>100 queen st<br>Kitchener<br>ON, Canada<br><h4>Call:2269785828 to better clarification or email us at www.redsea.com </h4>
+
+    </section>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h4>&COPY; 2021 www.redsea.com</h4>
+    </footer>
+
+</div>
+
+
+
+<!--Editpage-->
+<div id="Editpage" data-role="page" style="background-color: #0088bb">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>  Check up page  </h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-theme="a" data-icon="home">Home</a></li>
+                <li><a href="#AddSender&ReceiverPage" data-theme="a" data-icon="plus">Add</a></li>
+                <li><a href="#SenderRecieverchekeuppage" data-theme="a" data-icon="grid" class="ui-btn-active ui-state-persist">Checkup</a></li>
+                <li><a href="#SettingsPage" data-theme="a" data-icon="gear">Settings</a></li>
+                <li><a href="#ContactPage" data-theme="a" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <div id="NKEdit" data-role="content">
+
+        <form id="EditForm2" name="EditForm2" data-role="content">
+
+            <label for="SenderNameSE" > Sender Name:</label>
+            <input id="SenderNameSE" type="text" data-clear-btn="true" name="SenderNameSE" class="required">
+            <label for="selprovinceS">Canada:</label>
+            <select id="selprovinceS" name="selprovince">
+                <option value="Ontario">Ontario</option>
+                <option value="Alberta">Alberta</option>
+                <option value="BritishColumbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                <option value="Northwest Territories">Northwest Territories</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+            </select>
+
+            <label for="SenderEmailS">  Sender Email:</label>
+            <input id="SenderEmailS" type="email"  name="SenderEmailS" placeholder="nahom@yahoo.com" class="required"  data-clear-btn="false">
+            <label for="PhoneNumberS" > Phone Number:</label>
+            <input id="PhoneNumberS" name="PhoneNumberS" data-clear-btn="false" >
+
+            <label for="dateS" > Date Send:</label>
+            <input id="dateS" type="date" name="dateS"  data-clear-btn="false" class="required">
+
+
+            <label for="checkboxS"> Check the checkbox then write the amount  </label>
+            <input id="checkboxS" type="checkbox" name="checkboxS">
+            <div id="checkboxSE" style="display: none">
+
+                <label for="AmountS"> Amount($):</label>
+                <input id="AmountS" type="number" name="AmountS"  data-clear-btn="false" value="" >
+
+                <label for="TotalS" > Total send:</label>
+                <input id="TotalS"   type="text"  name="TotalS" disabled="disabled">
+
+
+                <label for="paymentmethodS"> Payment Method:</label>
+                <input id="paymentmethodS" type="checkbox" name="paymentmethodS">
+
+                <div id="paymentS" style="display: none">
+                    <label for="NameholderS">   Name on card:</label>
+                    <input id="NameholderS" type="text" name="NameholderS"  data-clear-btn="false">
+                    <label for="CardNumberS">  Card  Number:</label>
+                    <input id="CardNumberS" type="password" name="CardNumberS"  data-clear-btn="false">
+                    <label for="dateEXS">  Exp.date:</label>
+                    <input id="dateEXS" type="date" name="dateEXS"  data-clear-btn="false" class="required">
+                    <label for="cvvS">  CVV:</label>
+                    <input id="cvvS" type="password" name="cvvS"  data-clear-btn="false" class="required">
+                </div>
+            </div>
+
+            <h1>Receiver Form</h1>
+
+
+                <label for="ReceiverNamer" > Receiver Name:</label>
+                <input id="ReceiverNamer" type="text" data-clear-btn="true" name="ReceiverNamer" class="required">
+                <label for="Recievercountryr">Receiver Location:</label>
+                <select id="Recievercountryr" name="Recievercountryr">
+                    <option value="Eritrea" selected></option>
+                    <option value="Eritrea" selected>Eritrea</option>
+
+                </select>
+
+                <label for="ReceiverEmailr">  Receiver Email:</label>
+                <input id="ReceiverEmailr" type="email"  name="ReceiverEmailr" value="" placeholder="nahom@yahoo.com" class="required"  data-clear-btn="false">
+                <label for="PhoneNumberr" > Phone Number:</label>
+                <input id="PhoneNumberr" type="number" name="PhoneNumberr" data-clear-btn="false" >
+
+                <label for="Receiverdater" > Date Receive:</label>
+                <input id="Receiverdater" type="date" name="Receiverdater"  data-clear-btn="false" class="required">
+
+            <label for="AccountE">  Receiver Account:</label>
+            <input id="AccountE" type="password" name="AccountE"  data-clear-btn="false" >
+            <label for="ReceivedR">  Amount Receive:</label>
+            <input id="ReceivedR" type="text" name="ReceivedR"  disabled="disabled" >
+
+            <button id="cancelbutton" data-role="button" type="button" name="cancelbutton" data-inline="horizontal" data-theme="b"  style="background: yellow; color: black">Cancel</button>
+            <button id="deletebutton" data-role="button" type="button" name="deletebutton" data-inline="horizontal" data-theme="b" style="background: #1b1b1b">Delete</button>
+            <button type="button" id="updatebutton"   name="updatebutton" data-inline="horizontal" data-theme="b" style="background: #0088bb">Update</button>
+
+        </form>
+    </div>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h4>&COPY; 2021 www.redsea.com</h4>
+    </footer>
+</div>
+
+
+</body>
+</html>
